@@ -93,3 +93,4 @@ foreach( BaseCustomer customer in customers )
 {
     Console.WriteLine(customer.CustomerNumber);
 }
+
