@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using intro.Business;
+using intro.DataAccess.Concretes;
 using intro.Entities;
 
 Console.WriteLine("Hello, World!");
@@ -34,10 +35,13 @@ for (int i = 0; i < loans.Length; i++)
     Console.WriteLine(loans[i]);
 }
 
-CourseManager courseManager = new();
-Course[] courses = courseManager.GetAll();
+//CourseManager courseManager = new(new CourseDal());
+//CourseManager courseManager = new(new EfCourseDal());
+CourseManager courseManager = new(new DapperCourseDal());
 
-for (int i = 0; i < courses.Length; i++)
+List<Course> courses = courseManager.GetAll();
+
+for (int i = 0; i < courses.Count; i++)
 {
     Console.WriteLine(courses[i].Name + " / " + courses[i].Price);
 }

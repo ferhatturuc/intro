@@ -1,21 +1,16 @@
 ﻿using intro.DataAccess.Abstracts;
 using intro.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace intro.DataAccess.Concretes;
 
-public class CourseDal : ICourseDal
+public class EfCourseDal : ICourseDal
 {
     List<Course> courses;
-    public CourseDal()
+    public EfCourseDal()
     {
         Course course1 = new Course();
         course1.Id = 1;
-        course1.Name = "C#";
+        course1.Name = "JavaScript";
         course1.Description = ".Net 8 vs...";
         course1.Price = 0;
 
@@ -31,7 +26,7 @@ public class CourseDal : ICourseDal
         course3.Description = "Python 3.12 vs...";
         course3.Price = 20;
 
-        courses = new List<Course> { course1, course2, course3};
+        courses = new List<Course> { course1, course2, course3 };
     }
     public List<Course> GetAll()
     {
@@ -44,3 +39,4 @@ public class CourseDal : ICourseDal
     }
 
 }
+
